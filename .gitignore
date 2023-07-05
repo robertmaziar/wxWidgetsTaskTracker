@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+/.vs/wxWidgetsTaskTracker
+/Debug
+/wxWidgetsTaskTracker/Debug
+/wxWidgetsTaskTracker/x64/Debug
