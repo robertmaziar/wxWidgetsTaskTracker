@@ -21,12 +21,19 @@
   <ItemGroup>
     <ClInclude Include="cApp.h" />
     <ClInclude Include="cMain.h" />
+    <ClInclude Include="customDialog.h" />
+    <ClInclude Include="task.h" />
     <ClInclude Include="TaskDialog.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cApp.cpp" />
     <ClCompile Include="cMain.cpp" />
+    <ClCompile Include="customDialog.cpp" />
+    <ClCompile Include="task.cpp" />
     <ClCompile Include="TaskDialog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

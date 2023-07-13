@@ -1,4 +1,9 @@
 #include "cMain.h"
+#include <chrono>
+#include <ctime> 
+#include <string>
+#include "TaskDialog.h"
+//#include "customDialog.h"
 
 BEGIN_EVENT_TABLE(cMain, wxFrame)
 	EVT_MENU(wxID_ABOUT, cMain::OnAbout)
@@ -10,7 +15,7 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "wxWidgets - Task Tracker", wxPoint(
 {
 	// Set the frame icon
 	//SetIcon(wxIcon(mondrian_xpm));
-	
+
 	wxMenu* fileMenu = new wxMenu;
 	fileMenu->Append(wxID_EXIT, wxT(" & Exit \tAlt+X"),
 		wxT("Quit this program"));
@@ -29,6 +34,9 @@ cMain::cMain() : wxFrame(nullptr, wxID_ANY, "wxWidgets - Task Tracker", wxPoint(
 	menuBar->Append(helpMenu, wxT(" & Help"));
 	SetMenuBar(menuBar);
 
+	//task_current = new wxTextCtrl(this, wxID_ANY);
+	//task_list = new wxListBox(this, wxID_ANY, wxPoint(10, 110), wxSize(300, 300));
+
 	CreateStatusBar(2);
 	SetStatusText(wxT("Welcome to wxWidgets!"));
 }
@@ -46,18 +54,12 @@ void cMain::OnAbout(wxCommandEvent& event)
 
 void cMain::OnAdd(wxCommandEvent& event)
 {
-	TaskDialog dialog(NULL, ID_ADD_TASK, wxT("Add Task"));
-	dialog.SetName(wxEmptyString);
-	dialog.SetAge(30);
-	dialog.SetSex(0);
-	dialog.SetVote(true);
+	TaskDialog dialog(this, wxID_ANY, wxT("Add Task"));
 
 	if (dialog.ShowModal() == wxID_OK)
 	{
-		wxString name = dialog.GetName();
-		int age = dialog.GetAge();
-		bool sex = dialog.GetSex();
-		bool vote = dialog.GetVote();
+		wxMessageBox(wxString::Format("Name = %s\nDate = %s\nType = %s\n",
+			dialog.getName(), dialog.getDate().FormatISODate(), dialog.getType()));
 	}
 }
 

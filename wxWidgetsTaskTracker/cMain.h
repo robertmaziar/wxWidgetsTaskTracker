@@ -1,8 +1,7 @@
 #pragma once
-//#include "wx/wx.h"
+#include "wx/wx.h"
 #include "wx/frame.h"
 #include "wx/chartype.h"
-#include "TaskDialog.h"
 
 class cMain : public wxFrame
 {
